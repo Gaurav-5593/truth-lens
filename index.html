@@ -343,8 +343,10 @@
 
 <script>
   // ── CONFIG ───────────────────────────────────────
-  const API_URL    = 'http://localhost:3001/analyze';
-  const SCRAPE_URL = 'http://localhost:3001/scrape';
+  const BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:3001' : '';
+const API_URL    = BASE + '/analyze';
+const SCRAPE_URL = BASE + '/scrape';
 
   let activeTab     = 'text';
   let currentResult = null;
